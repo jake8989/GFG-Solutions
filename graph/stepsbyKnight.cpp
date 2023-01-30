@@ -27,11 +27,11 @@ int minStepToReachTarget(vector<int> &KnightPos, vector<int> &TargetPos, int N)
       {
          int dr = row + movx[i];
          int dc = col + movy[i];
-         if (dr >= 1 && dr <= N && dc >= 1 && dc <= N)
+         if (dr >= 1 && dr <= N && dc >= 1 && dc <= N && (!vis[sx][sy]))
          {
             q.push({dr, dc});
             dist[dr][dc] = dist[row][col] + 1;
-            vis[sx][sy] = 1;
+            vis[dr][dc] = 1;
          }
       }
    }
