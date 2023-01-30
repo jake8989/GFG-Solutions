@@ -3,7 +3,7 @@
 using namespace std;
 vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
 {
-   // using proirity queue
+   // using priority queue
    vector<int>
        dist(V, 1e9);
    dist[S] = 0;
