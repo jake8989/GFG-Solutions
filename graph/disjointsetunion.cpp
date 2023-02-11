@@ -26,6 +26,8 @@ public:
    {
       int ult_u = findUltPar(ult_u);
       int ult_v = findUltPar(ult_v);
+      if (ult_u == ult_v)
+         return;
       if (rank[ult_u] < rank[ult_v])
       {
          parent[ult_u] = ult_v;
@@ -36,7 +38,7 @@ public:
       }
       else
       {
-         parent[ult_v] = ult_u;
+         parent[ult_v] = ult_u; // rank paretn++;
          rank[ult_u]++;
       }
    }
