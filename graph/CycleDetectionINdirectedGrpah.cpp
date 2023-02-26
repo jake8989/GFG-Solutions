@@ -2,6 +2,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 // using topoSort
+/// DFS METHOD
+// bool dfs(int node, vector<int> adj[], vector<int> &vis, vector<int> &b)
+// {
+//    vis[node] = 1;
+//    b[node] = 1;
+//    for (auto it : adj[node])
+//    {
+//       if (!vis[it])
+//       {
+//          if (dfs(it, adj, vis, b))
+//             return 1;
+//       }
+//       else if (b[it])
+//          return 1;
+//    }
+//    b[node] = 0;
+//    return false;
+// }
+// bool isCyclic(int V, vector<int> adj[])
+// {
+//    vector<int> vis(V, 0);
+//    vector<int> b(V, 0);
+//    for (int i = 0; i < V; i++)
+//    {
+//       if (!vis[i])
+//          if (dfs(i, adj, vis, b))
+//             return 1;
+//    }
+//    return 0;
+// }
+// Topo Sort Method
 bool isCyclic(int V, vector<int> adj[])
 {
    vector<int> indg(V, 0);

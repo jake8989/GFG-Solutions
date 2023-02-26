@@ -17,7 +17,6 @@ int spanningTree(int V, vector<vector<int>> adj[])
          continue;
       vis[parent] = 1;
       sum += di;
-
       for (auto it : adj[parent])
       {
          int edw = it[1];

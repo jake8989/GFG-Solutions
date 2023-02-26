@@ -3,8 +3,8 @@
 using namespace std;
 bool dfs(int node, int parent, vector<int> &vis, vector<int> adj[])
 {
-   if (vis[node])
-      return;
+   // if (vis[node])
+   //    return;
    vis[node] = 1;
    for (auto itr : adj[node])
    {
