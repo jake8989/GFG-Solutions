@@ -1,6 +1,7 @@
 /*उद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः।*/
 #include <bits/stdc++.h>
 using namespace std;
+
 vector<int> preorder(Node *root)
 {
    vector<int> ans;
