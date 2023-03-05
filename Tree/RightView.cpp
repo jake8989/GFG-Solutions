@@ -14,10 +14,12 @@ public:
       this->right = NULL;
    }
 };
-vector<int> topView(Node *root)
+vector<int> rightView(Node *root)
 {
-   // Your code here
    vector<int> ans;
+   if (root == NULL)
+      return ans;
+
    map<int, int> mpp;
    queue<pair<Node *, int>> q;
    q.push({root, 0});
@@ -25,10 +27,11 @@ vector<int> topView(Node *root)
    {
       /* code */
       auto p = q.front();
+      q.pop();
       Node *parent = p.first;
       int level = p.second;
-      if (mpp[level] == 0)
-         mpp[level] = parent->data;
+      //   if (mpp[level] == 0)
+      mpp[level] = parent->data;
 
       if (parent->left)
       {
@@ -46,7 +49,6 @@ vector<int> topView(Node *root)
    }
    return ans;
 }
-
 int main()
 {
 

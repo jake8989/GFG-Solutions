@@ -14,9 +14,9 @@ public:
       this->right = NULL;
    }
 };
-vector<int> topView(Node *root)
+vector<int> bottomView(Node *root)
 {
-   // Your code here
+   // Your Code Here
    vector<int> ans;
    map<int, int> mpp;
    queue<pair<Node *, int>> q;
@@ -25,15 +25,14 @@ vector<int> topView(Node *root)
    {
       /* code */
       auto p = q.front();
+      q.pop();
       Node *parent = p.first;
       int level = p.second;
-      if (mpp[level] == 0)
-         mpp[level] = parent->data;
+      mpp[level] = parent->data;
 
       if (parent->left)
       {
-         q.push({parent->left, level + 1});
-         // level===vertex that is in the x dir'n;
+         q.push({parent->left, level - 1});
       }
       if (parent->right)
       {
@@ -46,7 +45,6 @@ vector<int> topView(Node *root)
    }
    return ans;
 }
-
 int main()
 {
 
