@@ -38,7 +38,7 @@ void markParent(Node *root, unordered_map<Node *, Node *> &NodeToParent, Node *&
       }
    }
 }
-void burnTree(Node *root, Node *start, unordered_map<Node *, Node *> &NodeToParent, int &ans)
+void burnTree(Node *roottt, Node *start, unordered_map<Node *, Node *> &NodeToParent, int &ans)
 {
    queue<Node *> q;
    q.push(start);
