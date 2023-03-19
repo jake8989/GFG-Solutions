@@ -85,7 +85,7 @@ int main()
          }
       }
    }
-   cout << dist[dx][dy];
+   cout << dist[dx - 1][dy - 1];
 
    return 0;
 }
