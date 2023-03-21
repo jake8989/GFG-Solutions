@@ -11,27 +11,27 @@ void solve(string move, vector<vector<int>> &vis, vector<vector<int>> &m, int n,
    // right
    if (row + 1 >= 0 && row + 1 < n && m[row + 1][col] == 1 && !vis[row + 1][col])
    {
-      vis[row + 1][col] = 1;
+      vis[row][col] = 1;
       solve(move + 'D', vis, m, n, ans, row + 1, col);
-      vis[row + 1][col] = 0;
+      vis[row][col] = 0;
    }
    else if (row >= 0 && row < n && m[row - 1][col] == 1 && !vis[row - 1][col])
    {
-      vis[row - 1][col] = 1;
+      vis[row][col] = 1;
       solve(move + 'D', vis, m, n, ans, row - 1, col);
-      vis[row - 1][col] = 0;
+      vis[row][col] = 0;
    }
    else if (col + 1 >= 0 && col + 1 < n && m[row][col + 1] == 1 && !vis[row][col + 1])
    {
-      vis[row][col + 1] = 1;
+      vis[row][col] = 1;
       solve(move + 'D', vis, m, n, ans, row, col + 1);
-      vis[row][col + 1] = 0;
+      vis[row][col] = 0;
    }
    else if (col - 1 >= 0 && col - 1 < n && m[row][col - 1] == 1 && !vis[row][col - 1])
    {
-      vis[row][col - 1] = 1;
+      vis[row][col] = 1;
       solve(move + 'D', vis, m, n, ans, row, col - 1);
-      vis[row][col - 1] = 0;
+      vis[row][col] = 0;
    }
 }
 vector<string> findPath(vector<vector<int>> &m, int n)

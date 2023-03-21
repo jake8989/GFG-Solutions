@@ -24,69 +24,37 @@ double eps = 1e-12;
 #define fi first
 #define se second
 #define loop(s, e) for (int i = s; i < e; i++)
-// int f(int index, int tar, string b, string tp, vector<int> &dp)
-// {
-//    if (index == b.length())
-//    {
-//       int curr = 0;
-//       for (int i = 0; i < tp.length(); i++)
-//       {
-//          if (tp[i] == '+')
-//             curr++;
-//          else
-//             curr--;
-//       }
-//       // cout << "output" << curr << endl;
-//       return curr == tar;
-//    }
-//    if (dp[index] != -1)
-//       return dp[index];
-//    if (b[index] == '?')
-//    {
-//       int take = f(index + 1, tar, b, tp + "+", dp);
-//       int not_take = f(index + 1, tar, b, tp + "-", dp);
-//       return dp[index] = take + not_take;
-//    }
-//    else
-//    {
-//       return dp[index] = f(index + 1, tar, b, tp + b[index], dp);
-//    }
-// }
+void dfs(int n, int m, int row, int col, vector<vector<int>> &vis, string st, vector<vector<int>> &vis, int &b)
+{
+   if (row < 0 || row >= n)
+      return;
+   if (col < 0 || col >= m)
+      return;
+   if (vis[row][col])
+      return;
+
+   vis[row][col] = 1;
+   if (row == n - 1 || row == 0 ||)
+      if (st == "DL")
+      {
+         dfs(n, m, row + 1, col - 1, vis, st);
+      }
+      else if ()
+}
 int main()
 {
-   string a, b;
-   cin >> a >> b;
-   int targ = 0;
-   int sec = 0;
-   for (int i = 0; i < a.length(); i++)
+   int t;
+   cin >> t;
+   while (t--)
    {
-      if (a[i] == '+')
-         targ++;
-      else
-         targ--;
-   }
-   for (int i = 0; i < b.length(); i++)
-   {
-      if (b[i] == '?')
-         sec++;
-   }
-   string tp = "";
-   vector<int> dp(a.length() + 1, 0);
-   int pos = f(0, targ, b, tp, dp);
-   if (sec == 0)
-   {
-      if (pos)
-      {
-         cout << "1.000000000\n";
-      }
-      else
-         cout << "0.000000000\n";
-   }
-   else
-   {
-      double x = pow(2, sec);
-      double prob = pos / x;
-      std::cout << std::fixed << std::setprecision(12) << prob;
+      int n, m, sx, sy, dx, dy;
+      cin >> n >> m >> sx >> sy >> dx >> dy;
+      string st;
+      cin >> st;
+      vector<vector<int>> vis(n, vector<int>(m, 0));
+      vector<vector<int>> ans;
+      int b = 0;
+      dfs(n, m, sx, sy, vis, st, ans, b);
    }
 
    return 0;

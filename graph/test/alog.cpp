@@ -7,6 +7,7 @@ using namespace __gnu_pbds;
 template <class T>
 using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 using namespace std;
+
 typedef long long ll;
 typedef long double ld;
 typedef pair<int, int> pi;
@@ -25,18 +26,45 @@ double eps = 1e-12;
 #define loop(s, e) for (int i = s; i < e; i++)
 int main()
 {
-   vi arr = {-1, 3, 4, -3, 5, -4};
-   int cnt = 0;
-   int k = 0;
-   int ip = 0;
-   for (int i = 0; i < 6; i++)
+   int n, m;
+   cin >> n >> m;
+   vector<pair<int, int>> adj[n + 1];
+   for (int i = 0; i < m; i++)
    {
-      if (arr[i] < 0)
+      int a, b, w;
+      cin >> a >> b >> w;
+      adj[a].pb({b, w});
+      adj[b].pb({a, w});
+   }
+   vector<int> dist(n + 1, 1e9);
+   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+   pq.push({0, 1});
+   dist[1] = 0;
+   vector<int> vis(n + 1, 0);
+   while (!pq.empty())
+   {
+
+      int wi = pq.top().first;
+      int node = pq.top().second;
+      pq.pop();
+      if (vis[node])
+         continue;
+      vis[node] = 1;
+      for (auto it : adj[node])
       {
-         swap(arr[i], arr[ip]);
-         ip++;
+         int u = it.first;
+         int w = it.second;
+         if (dist[u] > wi + w)
+         {
+            dist[u] = wi + w;
+            pq.push({dist[u], u});
+         }
       }
    }
-   for (int i = 0; i < 6; i++)
-      cout << arr[i] << " ";
+   for (int i = 1; i <= n; i++)
+   {
+      cout << dist[i] << " ";
+   }
+
+   return 0;
 }
